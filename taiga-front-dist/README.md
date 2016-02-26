@@ -18,5 +18,7 @@ docker run --name taiga_front_dist_container_name --link taiga_back_container_na
 
 ## Environment
 
+* ``TAIGABACK_PORT_8000_TCP_ADDR`` defaults to ``"taigaback"``
+* ``TAIGABACK_PORT_8000_TCP_PORT`` defaults to ``8000``
 * ``PUBLIC_REGISTER_ENABLED`` defaults to ``true``
 * ``API`` defaults to ``"/api/v1"``

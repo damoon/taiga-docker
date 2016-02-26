@@ -1,13 +1,13 @@
 #!/bin/bash
 
-bash /usr/local/taiga/configure
+source /usr/local/taiga/configure
 
 cd /usr/local/taiga/taiga-back/
 
 python manage.py collectstatic --noinput
 
-echo "Waiting for Postgresql to be available..."
-while ! nc -z $POSTGRES_PORT_5432_TCP_ADDR 5432; do
+while ! nc -z $POSTGRES_PORT_5432_TCP_ADDR $POSTGRES_PORT_5432_TCP_PORT; do
+  echo "Waiting for Postgresql to be available..."
   sleep 1
 done
 

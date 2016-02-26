@@ -2,9 +2,10 @@
 
 bash /usr/local/taiga/configure
 
-echo "Waiting for Taiga backend to be available..."
-while ! nc -z $TAIGABACK_PORT_8000_TCP_ADDR 8000; do
+while ! nc -z $TAIGABACK_PORT_8000_TCP_ADDR $TAIGABACK_PORT_8000_TCP_PORT; do
+  echo "Waiting for Taiga backend to be available..."
   sleep 1
 done
 
+echo "starting frontend"
 nginx -g "daemon off;"

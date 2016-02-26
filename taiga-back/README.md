@@ -39,13 +39,6 @@ URLs for static files and media files from taiga-back:
 * ``MEDIA_URL`` defaults to ``"http://$HOSTNAME/media/"``
 * ``STATIC_URL`` defaults to ``"http://$HOSTNAME/static/"``
 
-Domain configuration:
-
-* ``API_SCHEME`` defaults to ``"http"``.
-* ``API_DOMAIN`` defaults to ``"$HOSTNAME"``
-* ``FRONT_SCHEME`` defaults to ``"http"``.
-* ``FRONT_DOMAIN`` defaults to ``"$HOSTNAME"``
-
 Email configuration:
 
 * ``EMAIL_USE_TLS`` defaults to ``False``
@@ -57,6 +50,8 @@ Email configuration:
 
 Database configuration:
 
-* ``POSTGRES_DB_NAME``. Use to override database name.
+* ``POSTGRES_PORT_5432_TCP_ADDR``. Use to set database host name, defaults to ``postgres``.
+* ``POSTGRES_PORT_5432_TCP_PORT``. Use to set database port, defaults to ``5432``.
+* ``POSTGRES_DB_NAME``. Use to override database name specified in linked postgres container.
 * ``POSTGRES_USER``. Use to override user specified in linked postgres container.
 * ``POSTGRES_PASSWORD``. Use to override password specified in linked postgres container.
