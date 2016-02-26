@@ -41,9 +41,9 @@ URLs for static files and media files from taiga-back:
 
 Domain configuration:
 
-* ``API_SCHEME`` defaults to ``"http"``. Use ``https`` if ``htdvisser/taiga-front-dist`` is used and SSL enabled.
+* ``API_SCHEME`` defaults to ``"http"``.
 * ``API_DOMAIN`` defaults to ``"$HOSTNAME"``
-* ``FRONT_SCHEME`` defaults to ``"http"``. Use ``https`` if ``htdvisser/taiga-front-dist`` is used and SSL enabled.
+* ``FRONT_SCHEME`` defaults to ``"http"``.
 * ``FRONT_DOMAIN`` defaults to ``"$HOSTNAME"``
 
 Email configuration:

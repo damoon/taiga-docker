@@ -16,58 +16,7 @@ A [htdvisser/taiga-back](https://registry.hub.docker.com/u/htdvisser/taiga-back/
 docker run --name taiga_front_dist_container_name --link taiga_back_container_name:taigaback --volumes-from taiga_back_container_name htdvisser/taiga-front-dist
 ```
 
-## SSL Support
-
-HTTPS can be enabled by setting ``SCHEME`` to ``https`` and filling ``SSL_CRT``
-and ``SSL_KEY`` env variables (see Environment section below). *http* (port 80) 
-requests will be redirected to *https* (port 443).
-
-Example:
-
-```
-data:
-  ...
-db:
-  ...
-taigaback:
-  image: htdvisser/taiga-back:stable
-  hostname: dev.example.com
-  environment:
-    ...
-    API_SCHEME: https
-    FRONT_SCHEME: https
-  links:
-    - db:postgres
-  volumes_from:
-    - data
-taigafront:
-  image: htdvisser/taiga-front-dist:stable
-  hostname: dev.example.com
-  environment:
-    SCHEME: https
-    SSL_CRT: |
-        -----BEGIN CERTIFICATE-----
-        ...
-        -----END CERTIFICATE-----
-    SSL_KEY: |
-        -----BEGIN RSA PRIVATE KEY-----
-        ...
-        -----END RSA PRIVATE KEY-----
-  links:
-    - taigaback
-  volumes_from:
-    - data
-  ports:
-    - 0.0.0.0:80:80
-    - 0.0.0.0:443:443
-```
-
 ## Environment
 
 * ``PUBLIC_REGISTER_ENABLED`` defaults to ``true``
 * ``API`` defaults to ``"/api/v1"``
-* ``SCHEME`` defaults to ``http``. If ``https`` is used either
-  * ``SSL_CRT`` and ``SSL_KEY`` needs to be set **or** 
-  * ``/etc/nginx/ssl/`` volume attached with ``ssl.crt`` and ``ssl.key`` files
-* ``SSL_CRT`` SSL certificate value. Valid only when ``SCHEME`` set to https.
-* ``SSL_KEY`` SSL certificate key. Valid only when ``SCHEME`` set to https.
