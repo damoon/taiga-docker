@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash /usr/local/taiga/configure
+source /usr/local/taiga/configure
 
 while ! nc -z $TAIGABACK_PORT_8000_TCP_ADDR $TAIGABACK_PORT_8000_TCP_PORT; do
   echo "Waiting for Taiga backend to be available..."
